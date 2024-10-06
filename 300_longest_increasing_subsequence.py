@@ -13,7 +13,7 @@ def lengthOfLIS(nums):
                     # print(f"mem is now: {mem}")
                 j += 1
     # print(mem)
-    return max(mem) 
+    return max(mem)
 
 print(lengthOfLIS(nums=[3, 4, -1, 0, 6, 2, 3]))
 
