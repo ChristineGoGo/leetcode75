@@ -16,53 +16,61 @@ public class Solution {
 
      public static boolean closeStrings(String word1, String word2) {
 
+        // Two conditions must be met:  All the characters present in word1 must be present in word2
+        // The frequency of the characted must be the same
+
         if (word1.length() != word2.length()) {
             return false;
         }
 
 
-        Map<String, Integer> word1Count = new HashMap<>();
-        Map<String, Integer> word2Count = new HashMap<>();
-        String current = " ";
-        Integer currentCount = 0;
+        Map<Character, Integer> word1Count = new HashMap<>();
+        Map<Character, Integer> word2Count = new HashMap<>();
+    
 
-        for (int i = 0; i < word1.length(); i++) {
-            current += word1.charAt(0);
-            if (word1Count.get(current) == null) {
-                word1Count.put(current, 1);
+        for (char c: word1.toCharArray()) {
+            if (word1Count.get(c) == null) {
+                word1Count.put(c, 1);
+            } else {
+                word1Count.put(c, word1Count.get(c) + 1);
             }
-            currentCount = word1Count.get(current);
-            currentCount++;
-            word1Count.put(current, currentCount);
         }
 
-        for (int i = 0; i < word2.length(); i++) {
-            current += word2.charAt(0);
-            if (word2Count.get(current) == null) {
-                word2Count.put(current, 1);
+        for (char c: word2.toCharArray()) {
+            if (word2Count.get(c) == null) {
+                word2Count.put(c, 1);
+            } else {
+                word2Count.put(c, word2Count.get(c) + 1);
             }
-            currentCount = word2Count.get(current);
-            currentCount++;
-            word2Count.put(current, currentCount);
         }
 
+        System.out.println("word1Count keyset: " + word1Count.keySet());
+        System.out.println("word2Count keyset: " + word2Count.keySet());
+
+        // Satisy condition 1:
+        // System.out.println(word1Count.keySet().equals(word2Count.keySet()));
         if (!word1Count.keySet().equals(word2Count.keySet())) {
+            // System.out.println("Keyset are not equal");
             return false;
         }
 
+        // Satisy condition 2:
         List<Integer> word1FrequencyList = new ArrayList<>(word1Count.values());
         List<Integer> word2FrequencyList = new ArrayList<>(word2Count.values());
 
         Collections.sort(word1FrequencyList);
         Collections.sort(word2FrequencyList);
 
+
+  
+
         return word1FrequencyList.equals(word2FrequencyList);
-        
     }
 
     public static void main(String[] args) {
-        boolean result = Solution.closeStrings("abc", "bca");
+        boolean result = closeStrings("abc", "bca");
         System.out.print(result);
+
     }
 
 }
