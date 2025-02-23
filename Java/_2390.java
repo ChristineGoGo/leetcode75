@@ -1,6 +1,4 @@
-package leetcode_2390;
-
-public class Solution {
+public class _2390 {
     public String removeStars(String s) {
         return "";
     }

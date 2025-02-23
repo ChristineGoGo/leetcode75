@@ -1,7 +1,6 @@
-package leetcode_394;
-import java.util.*;
+import java.util.Stack;
 
-public class Solution {
+public class _394 {
     public static String decodeString(String s) {
         Stack<Integer> count = new Stack<>();
         Stack<StringBuilder> currentStringStack = new Stack<>();
@@ -36,5 +35,4 @@ public class Solution {
         System.out.println(decodeString(test1));
 
     }
-
 }

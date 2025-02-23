@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import java.util.*;
-
-public class Solution {
+public class _1657 {
     /**
      * Two strings are considered close if you can attain one from the other using the following operations:
             Operation 1: Swap any two existing characters.
@@ -72,5 +75,6 @@ public class Solution {
         System.out.print(result);
 
     }
+
 
 }
