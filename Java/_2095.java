@@ -1,5 +1,5 @@
 
-public class _2095 extends ListNode {
+public class _2095 {
     // public static class ListNode {
     //     int val;
     //     ListNode next;
@@ -41,7 +41,9 @@ public class _2095 extends ListNode {
     }
 
     public static void main(String[] args) {
-        ListNode listnode = new ListNode();
+        ListNode listnode = new ListNode(5);
+        ListNode listnode1 = new ListNode(6, listnode);
+        System.out.println(listnode1.next);
     }
 
     
